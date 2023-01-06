@@ -8,6 +8,7 @@ if($_GET['user'] and $_GET['password']){
 
     $user = $_GET['user'];
     $password = $_GET['password'];
+    // check if the user and the passwor are good
     if(strcmp($user, USER) === 0 and strcmp($password, PASSWORD) === 0){
         $valid_creds = True;
     }else{
