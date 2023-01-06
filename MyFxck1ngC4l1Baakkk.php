@@ -52,9 +52,7 @@ if($_GET['user'] and $_GET['password']){
                     curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
                     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
                     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-                    
                     $result = curl_exec($ch);
-                    
                     if(curl_errno($ch)) {
                         echo 'Curl error: ' . curl_error($ch);
                     } else {
@@ -70,7 +68,6 @@ if($_GET['user'] and $_GET['password']){
                     $url = "https://discordapp.com/api/webhooks/xxxxxxxxx";
                     $headers = [ 'Content-Type: application/json; charset=utf-8' ];
                     $POST = [ 'username' => 'whoishere', 'content' => 'Callback from XXX' ];
-
                     $ch = curl_init();
                     curl_setopt($ch, CURLOPT_URL, $url);
                     curl_setopt($ch, CURLOPT_POST, true);
@@ -82,8 +79,7 @@ if($_GET['user'] and $_GET['password']){
                     */
                     break;
                 case 'EMAIL';
-                    // TODO send EMAIL
-                    
+                    // TODO send EMAIL               
                     /*
                     $msg = "Callback from XXX";
                     $msg = wordwrap($msg,70);
