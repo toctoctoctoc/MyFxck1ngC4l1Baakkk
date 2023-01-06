@@ -87,6 +87,7 @@ if($_GET['user'] and $_GET['password']){
                     break;
             }
         }
+        // add the flag here
 
     }
 }
