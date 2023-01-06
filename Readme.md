@@ -21,3 +21,7 @@ A webhook ID must be set on the code
 That part was not tested
 
 ### Email
+
+For email, php must be configured with some valid credential and URL.
+
+That part was not tested
