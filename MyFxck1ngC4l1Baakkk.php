@@ -25,30 +25,25 @@ if($_GET['user'] and $_GET['password']){
                 case 'SMS';
                     // TODO send SMS
 
+                    /*
                     // TODO add API keys and planid
                     $service_plan_id = "YOUR_servicePlanId";
                     $bearer_token = "YOUR_API_token";
-                    
                     // TODO find a phone number to send the message
                     $send_from = "YOUR_Sinch_virtual_number";
                     $recipient_phone_numbers = "recipient_phone_numbers"; 
                     $message = "Callback from XXX";
-                    
-                    
                     if(stristr($recipient_phone_numbers, ',')){
                       $recipient_phone_numbers = explode(',', $recipient_phone_numbers);
                     }else{
                       $recipient_phone_numbers = [$recipient_phone_numbers];
                     }
-                    
                     $content = [
                       'to' => array_values($recipient_phone_numbers),
                       'from' => $send_from,
                       'body' => $message
                     ];
-                    
                     $data = json_encode($content);
-                    
                     $ch = curl_init("https://us.sms.api.sinch.com/xms/v1/{$service_plan_id}/batches");
                     curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
                     curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BEARER);
@@ -66,7 +61,7 @@ if($_GET['user'] and $_GET['password']){
                         echo $result;
                     }
                     curl_close($ch);
-
+                    */
                     break;
                 case 'DISC';
                     // TODO send DISC
@@ -88,9 +83,12 @@ if($_GET['user'] and $_GET['password']){
                     break;
                 case 'EMAIL';
                     // TODO send EMAIL
+                    
+                    /*
                     $msg = "Callback from XXX";
                     $msg = wordwrap($msg,70);
                     mail("TBD","H4cKed",$msg);
+                    */
                     break;
             }
         }
