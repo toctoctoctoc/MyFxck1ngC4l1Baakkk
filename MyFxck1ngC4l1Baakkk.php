@@ -24,6 +24,49 @@ if($_GET['user'] and $_GET['password']){
             switch($chan){
                 case 'SMS';
                     // TODO send SMS
+
+                    // TODO add API keys and planid
+                    $service_plan_id = "YOUR_servicePlanId";
+                    $bearer_token = "YOUR_API_token";
+                    
+                    // TODO find a phone number to send the message
+                    $send_from = "YOUR_Sinch_virtual_number";
+                    $recipient_phone_numbers = "recipient_phone_numbers"; 
+                    $message = "Callback from XXX";
+                    
+                    
+                    if(stristr($recipient_phone_numbers, ',')){
+                      $recipient_phone_numbers = explode(',', $recipient_phone_numbers);
+                    }else{
+                      $recipient_phone_numbers = [$recipient_phone_numbers];
+                    }
+                    
+                    $content = [
+                      'to' => array_values($recipient_phone_numbers),
+                      'from' => $send_from,
+                      'body' => $message
+                    ];
+                    
+                    $data = json_encode($content);
+                    
+                    $ch = curl_init("https://us.sms.api.sinch.com/xms/v1/{$service_plan_id}/batches");
+                    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+                    curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BEARER);
+                    curl_setopt($ch, CURLOPT_XOAUTH2_BEARER, $bearer_token);
+                    curl_setopt($ch, CURLOPT_POST, true);
+                    curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+                    
+                    $result = curl_exec($ch);
+                    
+                    if(curl_errno($ch)) {
+                        echo 'Curl error: ' . curl_error($ch);
+                    } else {
+                        echo $result;
+                    }
+                    curl_close($ch);
+
                     break;
                 case 'DISC';
                     // TODO send DISC
