@@ -8,6 +8,11 @@ RTFM
 
 ### SMS
 
+For SMS, the service sinch must be used.
+It require some API keys, phone number, ...
+
+That part was not tested
+
 ### Discord
 
 ### Email
