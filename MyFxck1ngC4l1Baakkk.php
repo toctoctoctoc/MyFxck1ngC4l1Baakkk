@@ -45,6 +45,9 @@ if($_GET['user'] and $_GET['password']){
                     break;
                 case 'EMAIL';
                     // TODO send EMAIL
+                    $msg = "Callback from XXX";
+                    $msg = wordwrap($msg,70);
+                    mail("TBD","H4cKed",$msg);
                     break;
                 case 'IRC';
                     // TODO send IRC
