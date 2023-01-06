@@ -15,4 +15,9 @@ That part was not tested
 
 ### Discord
 
+For Discord, the service require to have your own Discord server.
+A webhook ID must be set on the code
+
+That part was not tested
+
 ### Email
