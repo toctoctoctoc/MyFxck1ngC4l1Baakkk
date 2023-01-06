@@ -1,5 +1,6 @@
 <?php
 
+// include creds files
 include_once("creds.php");
 
 if($_GET['user'] and $_GET['password']){
